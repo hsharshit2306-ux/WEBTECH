@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JS Functions & Scope Demo</title>
+</head>
+<body>
+    <h2>Output:</h2>
+    <pre id="output"></pre>
+
+    <script>
+        function print(msg) {
+            document.getElementById("output").innerText += msg + "\n";
+        }
+
+        function greet(name) {
+            return "Hello " + name;
+        }
+
+        // Function expression
+        const add = function(a, b) {
+            return a + b;
+        };
+
+        // Arrow function
+        const multiply = (x, y) => x * y;
+
+        function scopeDemo() {
+            if (true) {
+                var a = 10;
+                let b = 20;  
+                const c = 30; 
+
+                print("Inside block: a=" + a + ", b=" + b + ", c=" + c);
+            }
+
+            print("Outside block: a=" + a);
+
+        }
+
+        print(greet("Harshit"));           
+        print("Add: " + add(5, 7));         
+        print("Multiply: " + multiply(3, 4)); 
+
+        scopeDemo();                       
+    </script>
+</body>
+</html>

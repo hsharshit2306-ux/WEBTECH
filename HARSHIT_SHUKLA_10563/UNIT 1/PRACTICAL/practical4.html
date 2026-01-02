@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration for Rungta College</title>
+</head>
+<body>
+
+    <h1 align="center">Registration Form - Rungta College (For Students After 12th Pass)</h1>
+
+    <form action="#" method="post" align="center">
+
+        <table border="1" align="center" cellpadding="8" cellspacing="0">
+            <caption><b>Student Registration Form</b></caption>
+
+            <tr>
+                <td>Full Name:</td>
+                <td><input type="text" name="fullname" placeholder="Enter your full name"></td>
+            </tr>
+
+            <tr>
+                <td>Father's Name:</td>
+                <td><input type="text" name="fathername" placeholder="Enter father's name"></td>
+            </tr>
+
+            <tr>
+                <td>Date of Birth:</td>
+                <td><input type="date" name="dob"></td>
+            </tr>
+
+            <tr>
+                <td>Gender:</td>
+                <td>
+                    <input type="radio" name="gender" value="male"> Male
+                    <input type="radio" name="gender" value="female"> Female
+                    <input type="radio" name="gender" value="other"> Other
+                </td>
+            </tr>
+
+            <tr>
+                <td>Contact Number:</td>
+                <td><input type="text" name="contact" maxlength="10" placeholder="Enter 10-digit number"></td>
+            </tr>
+
+            <tr>
+                <td>Email:</td>
+                <td><input type="email" name="email" placeholder="Enter your email"></td>
+            </tr>
+
+            <tr>
+                <td>Address:</td>
+                <td><textarea name="address" rows="3" cols="25" placeholder="Enter your address"></textarea></td>
+            </tr>
+
+            <tr>
+                <td>Preferred Course:</td>
+                <td>
+                    <select name="course">
+                        <option value="">--Select Course--</option>
+                        <option>B.Tech in Computer Science</option>
+                        <option>B.Tech in Mechanical Engineering</option>
+                        <option>B.Tech in Civil Engineering</option>
+                        <option>B.Tech in Electrical Engineering</option>
+                        <option>B.Tech in Electronics & Communication</option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Subjects Studied in 12th:</td>
+                <td>
+                    <input type="checkbox" name="subject" value="Physics"> Physics
+                    <input type="checkbox" name="subject" value="Chemistry"> Chemistry
+                    <input type="checkbox" name="subject" value="Mathematics"> Mathematics
+                    <input type="checkbox" name="subject" value="Biology"> Biology
+                </td>
+            </tr>
+
+            <tr>
+                <td>Upload Marksheet:</td>
+                <td><input type="file" name="marksheet"></td>
+            </tr>
+
+            <tr align="center">
+                <td colspan="2">
+                    <input type="submit" value="Submit">
+                    <input type="reset" value="Reset">
+                </td>
+            </tr>
+        </table>
+
+    </form>
+
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Event Listeners Demo</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            text-align: center;
+            background: #f0f2f5;
+            padding: 20px;
+        }
+
+        #box {
+            width: 100%;
+            height: 200px;
+            background: white;
+            border: 2px dashed #ccc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            transition: 0.3s;
+        }
+
+        .active-mouse {
+            background: #ffeaa7 !important;
+            border-color: #fdcb6e !important;
+        }
+
+        .key-display {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #0984e3;
+        }
+
+        .controls {
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="box">Move mouse here or type on keyboard</div>
+    <div class="key-display" id="keyOut">-</div>
+
+    <div class="controls">
+        <button id="stopBtn">Disable Mouse Tracking</button>
+    </div>
+
+    <script>
+        const box = document.getElementById('box');
+        const keyOut = document.getElementById('keyOut');
+        const stopBtn = document.getElementById('stopBtn');
+
+        // --- 1. MOUSE EVENTS ---
+        function handleMouseEnter() {
+            box.classList.add('active-mouse');
+            box.innerText = "Mouse is INSIDE";
+        }
+
+        function handleMouseLeave() {
+            box.classList.remove('active-mouse');
+            box.innerText = "Move mouse here or type on keyboard";
+        }
+
+        // Adding listeners
+        box.addEventListener('mouseenter', handleMouseEnter);
+        box.addEventListener('mouseleave', handleMouseLeave);
+
+        // --- 2. KEYBOARD EVENTS ---
+        // We attach this to 'window' to listen for keys anywhere on the page
+        window.addEventListener('keydown', (event) => {
+            keyOut.innerText = `Key Pressed: ${event.key}`;
+
+            // Logical check: change color if it's the Enter key
+            if (event.key === "Enter") {
+                keyOut.style.color = "red";
+            } else {
+                keyOut.style.color = "#0984e3";
+            }
+        });
+
+        // --- 3. REMOVING LISTENERS ---
+        stopBtn.addEventListener('click', () => {
+            // You must reference the exact same function name used in addEventListener
+            box.removeEventListener('mouseenter', handleMouseEnter);
+            box.removeEventListener('mouseleave', handleMouseLeave);
+
+            box.innerText = "Mouse Tracking Disabled";
+            box.style.background = "#dfe6e9";
+            stopBtn.disabled = true;
+        });
+    </script>
+
+</body>
+
+</html>

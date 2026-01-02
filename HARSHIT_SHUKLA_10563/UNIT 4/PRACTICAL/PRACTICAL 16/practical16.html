@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Show/Hide & Toggle Demo</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            display: flex;
+            justify-content: center;
+            padding: 50px;
+            background: #f8f9fa;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            width: 320px;
+            text-align: center;
+        }
+
+        /* The content we will show/hide */
+        #secretContent {
+            background: #fff3cd;
+            padding: 15px;
+            margin: 15px 0;
+            border: 1px solid #ffeeba;
+        }
+
+        /* A class we will toggle on and off */
+        .highlight-mode {
+            background: #333 !important;
+            color: #00ff00 !important;
+            border: 2px solid #00ff00;
+        }
+
+        button {
+            margin: 5px;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+
+        .btn-toggle {
+            background: #6c757d;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="card" id="mainCard">
+        <h3>JS Visibility & Classes</h3>
+
+        <div id="secretContent">🔓 This is a secret message!</div>
+
+        <button onclick="toggleVisibility()">Show/Hide Message</button>
+        <button class="btn-toggle" onclick="toggleStyle()">Toggle Dark Mode</button>
+    </div>
+
+    <script>
+        // 1. Show/Hide Logic
+        function toggleVisibility() {
+            const box = document.getElementById('secretContent');
+
+            if (box.style.display === "none") {
+                box.style.display = "block"; // Show it
+            } else {
+                box.style.display = "none";  // Hide it
+            }
+        }
+
+        // 2. Class Toggling Logic (Best Practice)
+        function toggleStyle() {
+            const card = document.getElementById('mainCard');
+
+            // .classList.toggle automatically adds the class if missing,
+            // or removes it if it's already there.
+            card.classList.toggle('highlight-mode');
+        }
+    </script>
+
+</body>
+
+</html>

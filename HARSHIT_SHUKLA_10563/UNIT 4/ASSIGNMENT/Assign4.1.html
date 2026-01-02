@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Attractive DOM Manipulation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #6a5af9, #ff6ec7);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+
+        .box {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            width: 350px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+        }
+
+        button {
+            margin-top: 15px;
+            padding: 12px 25px;
+            border: none;
+            background: #fff;
+            color: #6a5af9;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #ffdeff;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <h2 id="title"> Welcome to DOM Demo </h2>
+    <p class="msg">Click the button to change this text.</p>
+
+    <button onclick="changeContent()">Change Content</button>
+</div>
+
+<script>
+    function changeContent() {
+        // Using getElementById()
+        document.getElementById("title").innerHTML = " Text Updated Successfully! ";
+
+        // Using querySelector()
+        document.querySelector(".msg").innerHTML = "✔ Updated using querySelector()!";
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <h2>Event Delegation</h2>
+  <div id="button-box" style="padding: 20px; border: 1px solid black;">
+    <button>Button A</button>
+    <button>Button B</button>
+    <button>Button C</button>
+  </div>
+  <p id="log">Click a button inside the box</p>
+
+  <script>
+    const box = document.getElementById("button-box");
+
+    // We listen to the BOX, not the buttons
+    box.addEventListener("click", function(event) {
+      // event.target is the specific thing you clicked
+      if (event.target.tagName === "BUTTON") {
+        document.getElementById("log").innerText = "You clicked: " + event.target.innerText;
+      }
+    });
+  </script>
+</body>
+</html>

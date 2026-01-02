@@ -1,0 +1,58 @@
+header {
+  background: #222;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  font-size: 22px;
+}
+.main {
+  display: flex;            
+}
+.sidebar {
+  width: 25%;
+  background: #ddd;
+  padding: 20px;
+  float: left;             
+}
+.content {
+  width: 75%;
+  padding: 20px;
+  float: left;
+}
+.main::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+@media (max-width: 600px) {
+  .main {
+    display: block;       
+  }
+  .sidebar,
+  .content {
+    width: 100%;       
+    float: none;
+  }
+}
+@media (min-width: 600px) and (max-width: 900px) {
+  .main {
+    display: flex;
+  }
+  .sidebar {
+    width: 35%;
+  }
+  .content {
+    width: 65%;
+  }
+}
+@media (min-width: 900px) {
+  .main {
+    display: flex;
+  }
+  .sidebar {
+    width: 25%;
+  }
+  .content {
+    width: 75%;
+  }
+}

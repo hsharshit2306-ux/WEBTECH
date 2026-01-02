@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>DOM Node Manipulation</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            padding: 40px;
+            background: #fdfdfd;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: auto;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            background: #fff;
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 4px;
+        }
+
+        .delete-btn {
+            background: #ff7675;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Dynamic List</h2>
+        <input type="text" id="itemInput" placeholder="Add a new item...">
+        <button onclick="addItem()">Add Item</button>
+
+        <ul id="itemList">
+        </ul>
+    </div>
+
+    <script>
+        function addItem() {
+            const input = document.getElementById('itemInput');
+            const list = document.getElementById('itemList');
+
+            if (input.value.trim() === "") return;
+
+            // 1. CREATE: Create the <li> and <button> elements
+            const li = document.createElement('li');
+            const removeBtn = document.createElement('button');
+
+            // 2. MODIFY: Add content and classes
+            li.innerText = input.value;
+            removeBtn.innerText = "Remove";
+            removeBtn.className = "delete-btn";
+
+            // 3. ATTACH: Add an event to the new button to remove the item
+            removeBtn.onclick = function () {
+                // REMOVE: Parent node removes the child
+                list.removeChild(li);
+                // Alternative: li.remove();
+            };
+
+            // 4. APPEND: Put the button inside the li, and li inside the list
+            li.appendChild(removeBtn);
+            list.appendChild(li);
+
+            // Clear input
+            input.value = "";
+        }
+    </script>
+
+</body>
+
+</html>

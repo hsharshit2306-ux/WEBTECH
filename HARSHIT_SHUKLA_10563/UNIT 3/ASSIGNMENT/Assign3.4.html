@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Better Form Validation</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            padding: 20px; 
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            width: 350px;
+            margin: auto;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #ccc;
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 4px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+        input:focus {
+            border-color: #007bff;
+        }
+        .error {
+            color: red;
+            font-size: 14px;
+            height: 16px;
+        }
+        .success-border {
+            border-color: green !important;
+        }
+        .error-border {
+            border-color: red !important;
+        }
+        button {
+            margin-top: 15px;
+            padding: 8px 15px;
+            width: 100%;
+            background: #007bff;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #0063d1;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>Registration Form</h2>
+
+    <form id="myForm" onsubmit="return validateForm()">
+
+        <!-- Name -->
+        <label>Name</label>
+        <input type="text" id="name" oninput="validateName()">
+        <div id="nameError" class="error"></div>
+
+        <!-- Email -->
+        <label>Email</label>
+        <input type="text" id="email" oninput="validateEmail()">
+        <div id="emailError" class="error"></div>
+
+        <!-- Password -->
+        <label>Password</label>
+        <input type="password" id="password" oninput="validatePassword()">
+        <div id="passError" class="error"></div>
+
+        <button type="submit">Submit</button>
+    </form>
+
+</div>
+
+<script>
+
+
+function validateName() {
+    const name = document.getElementById("name");
+    const err = document.getElementById("nameError");
+
+    if (name.value.trim().length < 2) {
+        err.textContent = "Name must be at least 2 chars";
+        name.classList.add("error-border");
+        name.classList.remove("success-border");
+        return false;
+    }
+
+    err.textContent = "";
+    name.classList.remove("error-border");
+    name.classList.add("success-border");
+    return true;
+}
+
+function validateEmail() {
+    const email = document.getElementById("email");
+    const err = document.getElementById("emailError");
+
+    const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!pattern.test(email.value)) {
+        err.textContent = "Invalid email address";
+        email.classList.add("error-border");
+        email.classList.remove("success-border");
+        return false;
+    }
+
+    err.textContent = "";
+    email.classList.remove("error-border");
+    email.classList.add("success-border");
+    return true;
+}
+
+function validatePassword() {
+    const pass = document.getElementById("password");
+    const err = document.getElementById("passError");
+
+    if (pass.value.length < 6) {
+        err.textContent = "Password must be 6+ characters";
+        pass.classList.add("error-border");
+        pass.classList.remove("success-border");
+        return false;
+    }
+
+    err.textContent = "";
+    pass.classList.remove("error-border");
+    pass.classList.add("success-border");
+    return true;
+}
+
+
+function validateForm() {
+    let a = validateName();
+    let b = validateEmail();
+    let c = validatePassword();
+
+    if (!(a && b && c)) {
+        alert("Please fix the errors before submitting.");
+        return false;
+    }
+
+    alert("Form submitted successfully!");
+    return true;
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Conditions & Loops Demo</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; background:#f7f7f9; color:#222 }
+    h1 { font-size: 20px; margin-bottom: 6px; }
+    #output {
+      white-space: pre-wrap;
+      background: #fff;
+      border: 1px solid #ddd;
+      padding: 12px;
+      border-radius: 8px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+      max-width: 700px;
+    }
+    button { margin-top: 12px; padding: 8px 12px; border-radius:6px; cursor:pointer }
+  </style>
+</head>
+<body>
+  <h1>Conditions & Loops — Demo</h1>
+  <div>
+    <label>Enter age: <input id="ageInput" type="number" value="20" min="0" /></label>
+    <button id="runBtn">Run Demo</button>
+  </div>
+
+  <h2>Output</h2>
+  <div id="output">(click "Run Demo")</div>
+
+  <script>
+    // -----------------------------
+// CONDITIONAL STATEMENTS
+// -----------------------------
+
+let number = 15;
+
+console.log("---- CONDITIONAL STATEMENT ----");
+
+if (number > 20) {
+    console.log("Number is greater than 20");
+} 
+else if (number === 20) {
+    console.log("Number is equal to 20");
+} 
+else {
+    console.log("Number is less than 20");
+}
+
+
+// -----------------------------
+// FOR LOOP
+// -----------------------------
+
+console.log("\n---- FOR LOOP (1 to 5) ----");
+
+for (let i = 1; i <= 5; i++) {
+    console.log("For Loop Count: " + i);
+}
+
+
+// -----------------------------
+// WHILE LOOP
+// -----------------------------
+
+console.log("\n---- WHILE LOOP (1 to 5) ----");
+
+let x = 1;
+while (x <= 5) {
+    console.log("While Loop Count: " + x);
+    x++;
+}
+
+
+// -----------------------------
+// DO...WHILE LOOP
+// -----------------------------
+
+console.log("\n---- DO WHILE LOOP (1 to 5) ----");
+
+let y = 1;
+do {
+    console.log("Do-While Loop Count: " + y);
+    y++;
+} while (y <= 5);
+
+  </script>
+</body>
+</html>

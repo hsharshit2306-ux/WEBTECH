@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <h2>Async/Await Simple Demo</h2>
+  <button onclick="startTask()">Start 2-Second Task</button>
+  <p id="msg">Click to start...</p>
+
+  <script>
+    // 1. The Promise (the "wait" logic)
+    const waitTwoSeconds = () => new Promise(resolve => setTimeout(resolve, 2000));
+
+    // 2. The Async function (the "action" logic)
+    async function startTask() {
+      document.getElementById("msg").innerText = "Wait for it...";
+      
+      await waitTwoSeconds(); // Code pauses here for 2 seconds
+      
+      document.getElementById("msg").innerText = "Done! Done! Done!";
+    }
+  </script>
+</body>
+</html>

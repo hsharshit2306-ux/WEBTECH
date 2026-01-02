@@ -1,0 +1,38 @@
+/* 1. Universal Selector (*) */
+* {
+    font-family: Arial, sans-serif;
+}
+body {
+    padding: 20px;
+}
+
+
+/* 2. ID Selector (#) */
+#main-header {
+    color: #005A9C; 
+    text-align: center;
+    border-bottom: 2px solid #005A9C;
+}
+
+
+ /* 3. Class Selector (.) */
+.highlight {
+    background-color: #FFF9C4; 
+    border-left: 4px solid #FBC02D; 
+    padding: 10px;
+    font-weight: bold;
+}
+
+
+/* 4. Descendant Selector (space) */
+article p {
+    color: #333; 
+    line-height: 1.6;
+}
+
+
+/* 5. Group Selector (,*/
+h2, h3 {
+    color: #444;
+    margin-top: 25px; 
+}
